@@ -1,0 +1,6 @@
+.cargo
+Cargo.lock
+target
+
+.envrc
+.tool-versions
