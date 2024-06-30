@@ -14,6 +14,4 @@ TODOs:
 ## Getting Started: `make setup`
 
 ## Help: `make help`
-- setup: `make setup`
-- help: `make help`
 
