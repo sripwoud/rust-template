@@ -9,7 +9,7 @@ TODOs:
 - [x] linting
 - [x] GH workflow
 - [x] test runner
-- [ ] conventional commits linting git hook and CLI
+- [x] conventional commits linting git hook and CLI
 - [ ] docs generation
 
 ## Getting Started: `make setup`
