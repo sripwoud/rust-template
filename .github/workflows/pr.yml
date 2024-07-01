@@ -25,5 +25,5 @@ jobs:
       - uses: actions/checkout@v4
       - uses: taiki-e/cache-cargo-install-action@v2.0.1
         with:
-          tool: nextest
-      - run: nextest run
+          tool: cargo-nextest
+      - run: cargo nextest run
