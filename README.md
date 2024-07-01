@@ -3,7 +3,7 @@ WIP
 
 TODOs:
 
-- [ ] setup script
+- [x] setup script
 - [ ] formatting
 - [ ] linting
 - [ ] GH workflow

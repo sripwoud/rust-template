@@ -19,3 +19,6 @@ fmt: ## format all files
 
 setup: ## run the setup script to install dependencies
 	@./.setup.sh
+
+test: ## run all tests
+	@cargo nextest run --help

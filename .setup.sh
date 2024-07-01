@@ -17,7 +17,7 @@ is_bin_locally_available() {
 install_local() {
   crate="$1"
   log "Installing $ORANGE$crate$RESET locally..."
-  cargo install --root .cargo "$crate"
+  cargo install "$crate"
 }
 
 maybe_install_local() {
