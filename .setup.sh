@@ -38,6 +38,36 @@ install_dev_deps() {
   done
 }
 
+write_pre_push_hook() {
+  cat >.git/hooks/pre-push <<'EOF'
+#!/bin/sh
+alias convco=.cargo/bin/convco
+
+# https://convco.github.io/check/
+z40=0000000000000000000000000000000000000000
+
+while read -r _ local_sha _ remote_sha; do
+  if [ "$local_sha" != $z40 ]; then
+    if [ "$remote_sha" = $z40 ]; then
+      # New branch, examine all commits
+      range="$local_sha"
+    else
+      # Update to existing branch, examine new commits
+      range="$remote_sha..$local_sha"
+    fi
+
+    # Check for WIP commit
+    if ! convco check "$range"; then
+      exit 1
+    fi
+  fi
+done
+EOF
+
+  chmod +x .git/hooks/pre-push
+  log "\nConventional commits lint hook written to .git/hooks/pre-push"
+}
+
 end_log() {
   log "\nTo get started, you can run the make tasks defined in the Makefile.\n"
   make help | tail -n +2 | head -n -1
@@ -45,6 +75,7 @@ end_log() {
 
 main() {
   install_dev_deps
+  write_pre_push_hook
   end_log
 }
 
