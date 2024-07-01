@@ -4,13 +4,15 @@ on:
   pull_request:
     types: [opened, reopened, synchronize]
     branches: [main]
+  push:
+    branches: [main]
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
   cancel-in-progress: true
 
 jobs:
-  style:
+  format-lint:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
