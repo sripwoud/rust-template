@@ -8,14 +8,22 @@ on:
 jobs:
   deploy-docs:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
     permissions:
       contents: write
     steps:
       - uses: actions/checkout@v4
-      - uses: moonrepo/setup-rust@v1.2.0
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2.7.3
+
       - name: Build docs
         run: make build.docs
-      - uses: peaceiris/actions-gh-pages@v4.0.0
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./target/doc
+          path: ./target/doc
+      - uses: actions/deploy-pages@v4
+        id: deploy
