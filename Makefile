@@ -11,6 +11,9 @@ help: ## display this help message (default task)
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | \
 		awk 'BEGIN {FS = ":.*?## "}; {printf "$(CYAN)%-20s$(RESET) %s\n", $$1, $$2}'
 
+build:
+	@cargo build
+
 check: ## check that all files match formatting rules
 	@dprint check
 
@@ -21,4 +24,4 @@ setup: ## run the setup script to install dependencies
 	@./.setup.sh
 
 test: ## run all tests
-	@cargo nextest run --help
+	@cargo nextest run

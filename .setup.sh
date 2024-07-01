@@ -17,7 +17,7 @@ is_bin_locally_available() {
 install_local() {
   crate="$1"
   log "Installing $ORANGE$crate$RESET locally..."
-  cargo install "$crate"
+  cargo install --root .cargo "$crate"
 }
 
 maybe_install_local() {
@@ -31,7 +31,7 @@ maybe_install_local() {
 
 install_dev_deps() {
   log "Installing development dependencies..."
-  crates="dprint nextest"
+  crates="dprint cargo-nextest"
 
   for crate in $crates; do
     maybe_install_local "$crate"
