@@ -5,10 +5,10 @@ WIP
 TODOs:
 
 - [x] setup script
-- [ ] formatting
-- [ ] linting
-- [ ] GH workflow
-- [ ] test runner
+- [x] formatting
+- [x] linting
+- [x] GH workflow
+- [x] test runner
 - [ ] conventional commits linting git hook and CLI
 - [ ] docs generation
 
