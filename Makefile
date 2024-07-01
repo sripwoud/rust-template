@@ -1,16 +1,15 @@
-##
-# Project Title
-#
-# @file
-# @version 0.1
+DEV_BIN_DIR := .cargo/bin
+CYAN := \033[36m
+RESET := \033[0m
+export PATH := $(DEV_BIN_DIR):$(PATH)
 
 .PHONY: fmt build test setup
 
-LOCAL_BIN=.cargo/bin
-export PATH := $(LOCAL_BIN):$(PATH)
-
-CYAN=\033[36m
-RESET=\033[0m
+help:
+	@echo "Usage: make [task]"
+	@echo "Available tasks:"
+	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | \
+		awk 'BEGIN {FS = ":.*?## "}; {printf "$(CYAN)%-20s$(RESET) %s\n", $$1, $$2}'
 
 check: ## check that all files match formatting rules
 	@dprint check
@@ -18,11 +17,5 @@ check: ## check that all files match formatting rules
 fmt: ## format all files
 	@dprint fmt
 
-help:
-	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | \
-		awk 'BEGIN {FS = ":.*?## "}; {printf "$(CYAN)%-20s$(RESET) %s\n", $$1, $$2}'
-
 setup: ## run the setup script to install dependencies
 	@./.setup.sh
-
-# end
