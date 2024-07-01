@@ -5,7 +5,7 @@ export PATH := $(DEV_BIN_DIR):$(PATH)
 
 .PHONY: fmt build test setup
 
-help:
+help: ## display this help message (default task)
 	@printf "%b\n" "Usage: make [$(CYAN)task$(RESET)]"
 	@printf "%s\n" "Available tasks:"
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | \
