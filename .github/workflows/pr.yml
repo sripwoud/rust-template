@@ -10,9 +10,12 @@ concurrency:
 jobs:
   style:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        crate: [dprint, cargo-nextest]
     steps:
       - uses: actions/checkout@v4
       - uses: taiki-e/cache-cargo-install-action@v2.0.1
         with:
-          tool: dprint,cargo-nextest
+          tool: ${{ matrix.crate }}
       - run: make check
