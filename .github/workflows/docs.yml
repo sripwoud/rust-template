@@ -1,0 +1,23 @@
+name: Deploy docs
+on:
+  push:
+    branches: [main]
+    paths: ['src/**/*.rs', 'Cargo.toml']
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: moonrepo/setup-rust@v1.2.0
+      - name: Build docs
+        run: cargo doc --no-deps --all-features
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - uses: peaceiris/actions-gh-pages@v4.0.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./target/doc

@@ -14,8 +14,14 @@ help: ## display this help message (default task)
 build:
 	@cargo build
 
+build.docs: ## build the documentation
+	@cargo doc --no-deps --all-features
+
 check: ## check that all files match formatting rules
 	@dprint check
+
+docs: ## build & open the documentation in the browser
+	@cargo doc --no-deps --open --all-features
 
 fmt: ## format all files
 	@dprint fmt
