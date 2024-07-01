@@ -1,0 +1,1 @@
+searchState.loadedDescShard("rust_template", 0, "Adds two numbers together")
