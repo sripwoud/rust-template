@@ -26,4 +26,5 @@ jobs:
       - uses: taiki-e/cache-cargo-install-action@v2.0.1
         with:
           tool: nextest
-      - run: make test
+      - run: cargo nextest run
+      - run: nextest run
