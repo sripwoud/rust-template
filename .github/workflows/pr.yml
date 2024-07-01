@@ -2,6 +2,8 @@ name: Pull Requests
 # test
 on:
   pull_request:
+    types: [opened, reopened, synchronized]
+    branches: [main]
 
 concurrency:
     group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
@@ -14,8 +16,14 @@ jobs:
       - uses: actions/checkout@v4
       - uses: taiki-e/cache-cargo-install-action@v2.0.1
         with:
-          tool: cargo-nextest
-      - uses: taiki-e/cache-cargo-install-action@v2.0.1
-        with:
           tool: dprint
       - run: make check
+
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: taiki-e/cache-cargo-install-action@v2.0.1
+        with:
+          tool: cargo-nexteset
+      - run: make test
