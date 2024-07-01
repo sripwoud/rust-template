@@ -6,8 +6,8 @@ export PATH := $(DEV_BIN_DIR):$(PATH)
 .PHONY: fmt build test setup
 
 help:
-	@echo "Usage: make [task]"
-	@echo "Available tasks:"
+	@printf "%b\n" "Usage: make [$(CYAN)task$(RESET)]"
+	@printf "%s\n" "Available tasks:"
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | \
 		awk 'BEGIN {FS = ":.*?## "}; {printf "$(CYAN)%-20s$(RESET) %s\n", $$1, $$2}'
 
