@@ -1,4 +1,5 @@
 # Rust Template
+
 WIP
 
 TODOs:
@@ -14,4 +15,3 @@ TODOs:
 ## Getting Started: `make setup`
 
 ## Help: `make help`
-
