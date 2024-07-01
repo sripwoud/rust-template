@@ -8,6 +8,8 @@ on:
 jobs:
   deploy-docs:
     runs-on: ubuntu-latest
+    permission:
+      contents: write
     steps:
       - uses: actions/checkout@v4
       - uses: moonrepo/setup-rust@v1.2.0
