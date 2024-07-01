@@ -56,6 +56,12 @@ while read -r _ local_sha _ remote_sha; do
       range="$remote_sha..$local_sha"
     fi
 
+    # Check only the commits that are not in main
+    merge_base=$(git merge-base "$local_sha" main)
+    if [ -n $merge_base ];then
+      range="$merge_base..$local_sha"
+    fi
+
     # Check for WIP commit
     if ! convco check "$range"; then
       exit 1
