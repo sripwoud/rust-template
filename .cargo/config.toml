@@ -1,4 +1,0 @@
-[env]
-PATH = { value = ".cargo/bin:$PATH", force = true, relative = true }
-[install]
-root = ".cargo"
