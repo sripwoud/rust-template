@@ -1,17 +1,12 @@
 # Rust Template
 
-WIP
+Getting started:
 
-TODOs:
+``` commandline
+git clone https://github.com/sripwoud/rust-template.git && cd rust-template && make setup
+```
 
-- [x] setup script
-- [x] formatting
-- [x] linting
-- [x] GH workflow
-- [x] test runner
-- [x] conventional commits linting git hook and CLI
-- [ ] docs generation
-
-## Getting Started: `make setup`
-
-## Help: `make help`
+or
+``` commandline
+git clone git@github.com:sripwoud/rust-template.git && cd rust-template && make setup
+```
