@@ -1,7 +1,6 @@
-<div style='display: flex'>
-  <img alt='rust icon' width='50' src='https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/rust/rust-original.svg'/>
-  <span style='font-weight: bold'>&nbsp;&nbsp<strong>PROJECT TEMPLATE</strong></span>
-</div>
+| <img alt='rust icon' width='50' src='https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/rust/rust-original.svg' style="display: block;" /> | <h1>TEMPLATE</h1> |
+| ------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- |
+
 <br/>
 
 ![main GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/sripwoud/rust-template/pr.yml?branch=main&label=main)
