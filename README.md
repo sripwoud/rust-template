@@ -17,11 +17,10 @@
 ## Develop
 
 I use [`mise`](https://mise.jdx.dev) to manage runtimes, manage environment variables, and run tasks.\
-To install it:
+To install it and setup the repository:
 
 ```commandline
-curl https://mise.run | sh
-mise activate
+./setup
 ```
 
 To run tasks interactively:
