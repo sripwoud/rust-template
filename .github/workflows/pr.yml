@@ -19,7 +19,8 @@ jobs:
       - uses: taiki-e/cache-cargo-install-action@v2.0.1
         with:
           tool: dprint
-      - run: make check
+      - run: dprint check
+      - run: cargo clippy --all-targets --all-features --workspace
 
   test:
     runs-on: ubuntu-latest
