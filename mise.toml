@@ -13,6 +13,7 @@ description = "Run the tests"
 alias = "t"
 
 [tools]
+"cargo:cargo-llvm-cov" = "latest"
 "cargo:cargo-nextest" = "latest"
 dprint = "latest"
 lefthook = "latest"

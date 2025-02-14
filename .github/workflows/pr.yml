@@ -16,9 +16,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: taiki-e/cache-cargo-install-action@v2.0.1
-        with:
-          tool: dprint
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: taiki-e/install-action@dprint
       - run: dprint check
       - run: cargo clippy --all-targets --all-features --workspace
 
@@ -26,7 +25,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: taiki-e/cache-cargo-install-action@v2.0.1
+      - uses: dtolnay/rust-toolchain@stable
         with:
-          tool: cargo-nextest
-      - run: cargo nextest run
+          components: llvm-tools-preview
+      - uses: taiki-e/install-action@cargo-llvm-cov
+      - uses: taiki-e/install-action@nextest
+
+      - name: Collect coverage data
+        run: cargo llvm-cov nextest --lcov --output-path lcov.info
+
+      - name: Coveralls
+        uses: coverallsapp/github-action@v2
