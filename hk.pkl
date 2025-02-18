@@ -1,0 +1,16 @@
+amends "https://hk.jdx.dev/v0/hk.pkl"
+
+min_hk_version = "0.2.3"
+
+`pre-commit` {
+  ["format"] {
+    fix_all = "dprint fmt"
+  }
+}
+
+// pre-push support not yet implemented
+//`pre-push` {
+//  ["lint"] {
+//    check_all = "cargo clippy --all-targets --all-features --workspace"
+//  }
+//}
