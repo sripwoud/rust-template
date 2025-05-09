@@ -12,7 +12,6 @@ log() {
 
 install_mise() {
   curl https://mise.run | sh
-  mise activate
   echo "✅ Installed ${ORANGE}mise$RESET"
 }
 
@@ -58,7 +57,7 @@ EOF
 
 main() {
   maybe_install_mise
-  mise install >/dev/null 2>&1 && log "✅ Installed ${ORANGE}mise$RESET"
+  mise up --bump && log "✅ Installed tools"
   use_convco_as_git_editor_only_on_main
   hk install >/dev/null && log "✅ Configured git hooks"
 }
